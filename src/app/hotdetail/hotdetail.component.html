@@ -1,0 +1,22 @@
+<div class="container" id="postEntry" (click)="showComments()">
+
+  <p>
+    Post:
+    {{post.title}}
+
+  </p>
+  <p> User: {{post.user}}</p>
+</div>
+
+
+
+<div *ngIf="display">
+  <ul>
+    <li *ngFor="let comment of post.comments">
+      {{comment}}
+    </li>
+  </ul>
+  <label for="comment">Add comment</label>
+  <input #newComment>
+  <button class="btn btn-dark" (click)="addComment(newComment.value)">Add</button>
+</div>

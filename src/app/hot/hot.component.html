@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Hot Posts</h1>  
+
+    <div *ngFor="let currentPost of posts" class="panel panel-default">
+      <div class="panel-body">
+            <app-hotdetail [post]="currentPost"></app-hotdetail>
+      </div>
+    </div>
+</div>
