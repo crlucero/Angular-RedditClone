@@ -1,4 +1,4 @@
-<div class="container" id="postEntry" (click)="showComments()">
+<div class="container" id="postEntry">
 
   <p>
     Post:
@@ -6,10 +6,17 @@
 
   </p>
   <p> User: {{post.user}}</p>
+  <p>Id: {{post.id}}</p>
+
+  <button (click)="showComments()" class="btn btn-info">Comment</button>
+  <button (click)="showEditForm()" class="btn btn-warning text-white">Edit</button>
+  <button (click)="deletePost()" class="btn btn-danger">Delete</button>
 </div>
+<br>
+<br>
+<hr>
 
-
-
+<!-- Comments Section -->
 <div *ngIf="display">
   <ul>
     <li *ngFor="let comment of post.comments">
@@ -19,4 +26,13 @@
   <label for="comment">Add comment</label>
   <input #newComment>
   <button class="btn btn-dark" (click)="addComment(newComment.value)">Add</button>
+</div>
+
+<!-- Edit Form Section -->
+
+<div *ngIf="editDisplay">
+
+  <label>Edit post here</label>
+  <input #updatedPost placeholder="{{post.title}}">
+ <button class="btn btn-warning text-white" (click)="editPost(updatedPost.value)">Edit</button>
 </div>

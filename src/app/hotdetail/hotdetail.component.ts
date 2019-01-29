@@ -24,6 +24,8 @@ export class HotdetailComponent implements OnInit {
   }
 
   display: boolean = false;
+  editDisplay: boolean= false;
+
   @Input() post: Post;
 
 
@@ -37,5 +39,16 @@ export class HotdetailComponent implements OnInit {
     this.display = !this.display;
   }
 
+  showEditForm() {
+    this.editDisplay = !this.editDisplay;
+  }
+
+  editPost(str){
+    this.post.title = str;
+  }
+
+  deletePost() {
+
+  }
 
 }
